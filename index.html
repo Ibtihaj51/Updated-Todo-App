@@ -6,26 +6,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <style>
+ body {
+        background-color: #00A2E2
+    }
+h1 {
 
+    color: #000000;
+}
+
+.td{
+
+    color: #000000;
+        font-size: 20px;
+}
+
+.add{
+    color: #000000;
+        font-size: 20px;
+}
+
+.ref{
+    color: #000000;
+        font-size: 20px;
+}
+
+.delall{
+
+    color: #000000;
+        font-size: 20px;
+}
+h5{
+    color: #000000;
+        font-size: 20px;
+}
+
+.res{
+    color: #000000;
+        font-size: 20px;
+}
+.up{
+    color: #000000;
+        font-size: 20px;
+}
+
+.del{
+    color: #000000;
+        font-size: 20px;
+}
+.edit{
+    color: #000000;
+        font-size: 20px;
+}
+.upbx{
+    color: #000000;
+        font-size: 20px;
+        font-style: "font-family: Geneva, Verdana, sans-serif;";
+}
     </style>
 </head>
 
 <body>
-    <h1>Todo App with server</h1>
+   <center> <h1 style="font-family: Geneva, Verdana, sans-serif;">Todo App With Server</h1>
 
     <form onsubmit="postTodo(); return false">
-        todo: <input id="todo" type="text" required>
-        <button type="submit">Add</button>
+        <h1 style="font-family: Geneva, Verdana, sans-serif;"> Todo: <input class="td"    id="todo" type="text" required>
+        <button class="add" type="submit">Add</button>
     </form>
-    <button onclick="getAllTodos()">Refresh</button>
-    <button onclick="deleteAllTodos()">Delete All</button>
+    <button class="ref" onclick="getAllTodos()">Refresh</button>
+    <button  class="delall" onclick="deleteAllTodos()">Delete All</button>
 
-    <h5 id="message" style="height:20px; color: red;"> </h5>
+    <h5 style="font-family: Geneva, Verdana, sans-serif;" id="message" style="height:20px; color: rgb(0, 0, 0);"> </h5>
 
-    <h3 id="result"> </h3>
-
+    <h3 style="font-family: Geneva, Verdana, sans-serif;  "id="result" class="res"> </h3>
+    
+</center>
     <script>
 
         let baseUrl =
@@ -77,13 +133,13 @@
                         document.querySelector("#result").innerHTML += `<span id='span-${eachTodo._id}'> ${eachTodo.text} </span>`;
                         document.querySelector("#result").innerHTML +=
                             `<form id='form-${eachTodo._id}' style="display: none;" onsubmit="updateTodo('${eachTodo._id}'); return false"> 
-                                <input id='input-${eachTodo._id}' value='${eachTodo.text}'  />
-                                <button type="submit">Update</button>
+                                <input class=upbx id='input-${eachTodo._id}' value='${eachTodo.text}'  />
+                                <button class=up type="submit">Update</button>
                             </form>`;
 
                         document.querySelector("#result").innerHTML +=
-                            `&nbsp;&nbsp; <button onclick="deleteTodo('${eachTodo._id}')" id='delete-${eachTodo._id}'> Delete </button>
-                            <button onclick="editTodo('${eachTodo._id}')" id='edit-${eachTodo._id}'> Edit </button>`
+                            `&nbsp;&nbsp; <button class="del" onclick="deleteTodo('${eachTodo._id}')" id='delete-${eachTodo._id}'> Delete </button>
+                            <button class="edit"  onclick="editTodo('${eachTodo._id}')" id='edit-${eachTodo._id}'> Edit </button>`
 
                         document.querySelector("#result").innerHTML += '<br>'
                     })
@@ -95,7 +151,7 @@
         }
 
         getAllTodos();
-        setInterval(getAllTodos, 10000);
+        setInterval(getAllTodos, 9000);
 
         let deleteTodo = async (id) => {
             try {

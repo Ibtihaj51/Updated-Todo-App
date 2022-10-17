@@ -27,11 +27,11 @@ app.post('/todo', (req, res) => {
             console.log(saved);
 
             res.send({
-                message: "your todo is saved"
+                message: "Your Todo is Saved"
             })
         } else {
             res.status(500).send({
-                message: "server error"
+                message: "Server Error"
             })
         }
     })
@@ -41,12 +41,12 @@ app.get('/todos', (req, res) => {
     todoModel.find({}, (err, data) => {
         if (!err) {
             res.send({
-                message: "here is you todo list",
+                message: "Here is your Todo List",
                 data: data
             })
         } else {
             res.status(500).send({
-                message: "server error"
+                message: "Server Error"
             })
         }
     });
@@ -66,13 +66,13 @@ app.put('/todo/:id', async (req, res) => {
         console.log('updated: ', data);
 
         res.send({
-            message: "todo is updated successfully",
+            message: "Todo is Updated",
             data: data
         })
 
     } catch (error) {
         res.status(500).send({
-            message: "server error"
+            message: "Server Error"
         })
     }
 })
@@ -83,11 +83,11 @@ app.delete('/todos', (req, res) => {
     todoModel.deleteMany({}, (err, data) => {
         if (!err) {
             res.send({
-                message: "All Todo has been deleted successfully",
+                message: "All Todos has been Deleted ",
             })
         } else {
             res.status(500).send({
-                message: "server error"
+                message: "Server Error"
             })
         }
     });
@@ -111,7 +111,7 @@ app.delete('/todo/:id', (req, res) => {
 
         } else {
             res.status(500).send({
-                message: "server error"
+                message: "Server Error"
             })
         }
     });
@@ -123,7 +123,7 @@ app.listen(port, () => {
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-let dbURI = 'mongodb+srv://ibtihaj_ali:hahaflat202@todo.hj5dqzx.mongodb.net/abc?retryWrites=true&w=majority';
+let dbURI = 'mongodb+srv://ibtihaj_ali:hahaflat202@todo.hj5dqzx.mongodb.net/abcd123?retryWrites=true&w=majority';
 mongoose.connect(dbURI);
 
 
