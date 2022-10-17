@@ -74,8 +74,10 @@ h5{
         <h1 style="font-family: Geneva, Verdana, sans-serif;"> Todo: <input class="td"    id="todo" type="text" required>
         <button class="add" type="submit">Add</button>
     </form>
-    <button class="ref" onclick="getAllTodos()">Refresh</button>
+
     <button  class="delall" onclick="deleteAllTodos()">Delete All</button>
+    <!-- <button class="ref" onclick="getAllTodos()">Refresh</button> -->
+    
 
     <h5 style="font-family: Geneva, Verdana, sans-serif;" id="message" style="height:20px; color: rgb(0, 0, 0);"> </h5>
 
@@ -151,7 +153,7 @@ h5{
         }
 
         getAllTodos();
-        setInterval(getAllTodos, 9000);
+        setInterval(getAllTodos, 10000);
 
         let deleteTodo = async (id) => {
             try {
@@ -171,6 +173,12 @@ h5{
 
         }
         let deleteAllTodos = async () => {
+            let code = prompt("Enter Password")
+            if (code === "123") 
+
+            
+
+            
             try {
                 let response = await axios.delete(`${baseUrl}/todos`)
 
