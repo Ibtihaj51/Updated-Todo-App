@@ -7,13 +7,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
  body {
         background-color: #00A2E2
     }
-h1 {
+    .head{
+
+        color: #000000;
+        margin: 0%;
+        padding: 0%;
+        font-size: 4em;
+
+    }
+    .head span{
+     
+        display: table-cell;
+        text-shadow: 0px 0px 10px #00A2E2,
+                     0px 0px 10px #00A2E2,
+                     0px 0px 30px #00A2E2;
+        animation: ani 2s linear infinite;
+    
+    }
+    span:nth-child(1)
+    
+    {
+        animation-delay: 0s;
+    
+    }
+    span:nth-child(2)
+    {
+        animation-delay: 0.25s;
+    }
+    span:nth-child(3)
+    {
+
+
+        animation-delay: 0.5s;
+    }
+    span:nth-child(4)
+    {
+        animation-delay: 0.75s;
+
+
+    }
+    
+.head span:nth-child(5)
+{
+    animation-delay: 1.25s;
+
+}
+.head span:nth-child(6){
+    animation-delay: 1.5s;
+}
+.head span:nth-child(7)
+{
+
+    animation-delay: 1.75s;
+}
+ 
+
+
+ @keyframes ani{
+
+    0%, 100%{
+        color: #000000;
+        filter: blur(0.5px);
+    }
+    5%, 95%{
+        color: #0000;
+        filter: blur(0.5px);
+    }
+ }
+    h1 {
 
     color: #000000;
+   
+    
+   
+
 }
 
 .td{
@@ -53,6 +125,9 @@ h5{
 
 .del{
     color: #000000;
+   
+    
+    
         font-size: 20px;
 }
 .edit{
@@ -68,14 +143,14 @@ h5{
 </head>
 
 <body>
-   <center> <h1 style="font-family: Geneva, Verdana, sans-serif;">Todo App With Server</h1>
+   <center> <h1  class="head" style="font-family: Geneva, Verdana, sans-serif;"><span>T</span><span>o</span><span>d</span><span>o</span> <span>A</span><span>p</span><span>p</span></h1>
 
     <form onsubmit="postTodo(); return false">
         <h1 style="font-family: Geneva, Verdana, sans-serif;"> Todo: <input class="td"    id="todo" type="text" required>
-        <button class="add" type="submit">Add</button>
+        <button class="add" type="submit"> <i class="fa fa-plus-square" aria-hidden="true"> </i>   Add</button>
     </form>
 
-    <button  class="delall" onclick="deleteAllTodos()">Delete All</button>
+    <button  class="delall" onclick="deleteAllTodos()"> <i class="fa fa-trash" aria-hidden="true"></i> Delete All</button>
     <!-- <button class="ref" onclick="getAllTodos()">Refresh</button> -->
     
 
@@ -141,7 +216,8 @@ h5{
 
                         document.querySelector("#result").innerHTML +=
                             `&nbsp;&nbsp; <button class="del" onclick="deleteTodo('${eachTodo._id}')" id='delete-${eachTodo._id}'> Delete </button>
-                            <button class="edit"  onclick="editTodo('${eachTodo._id}')" id='edit-${eachTodo._id}'> Edit </button>`
+                            <button class="edit"  onclick="editTo do('${eachTodo._id}')" id='edit-${eachTodo._id}'> Edit </button>`
+                            
 
                         document.querySelector("#result").innerHTML += '<br>'
                     })
